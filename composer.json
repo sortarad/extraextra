@@ -1,0 +1,19 @@
+{
+    "name": "sortarad/rss",
+    "autoload": {
+        "psr-4": {
+            "Sortarad\\Rss\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Rss",
+            "description": "Rss addon"
+        },
+        "laravel": {
+            "providers": [
+                "Sortarad\\Rss\\ServiceProvider"
+            ]
+        }
+    }
+}
