@@ -5,7 +5,9 @@
 				<td>
 					<div class="flex items-center">
 						<div class="little-dot mr-1 bg-green"></div>
-						<a class="text-sm" href="{{ $item->get_permalink() }}">{{ $item->get_title() }}</a>
+						<a class="text-sm" href="{{ $item->get_permalink() }}" target="_blank">
+							{{ $item->get_title() }}
+						</a>
 					</div>
 				</td>
 			</tr>
