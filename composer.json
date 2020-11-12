@@ -1,6 +1,16 @@
 {
     "name": "sortarad/rss",
     "description": "",
+    "license": "MIT",
+    "keywords": [
+        "statamic",
+        "rss",
+        "widget"
+    ],
+    "type": "library",
+    "require": {
+        "simplepie/simplepie": "^1.5"
+    },
     "autoload": {
         "psr-4": {
             "Sortarad\\Rss\\": "src"
@@ -17,7 +27,9 @@
             ]
         }
     },
-    "require": {
-        "simplepie/simplepie": "^1.5"
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
     }
 }
