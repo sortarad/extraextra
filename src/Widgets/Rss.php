@@ -3,6 +3,7 @@
 namespace Sortarad\Rss\Widgets;
 
 use Statamic\Widgets\Widget;
+use Illuminate\Support\Facades\Cache;
 
 class Rss extends Widget
 {
@@ -13,9 +14,43 @@ class Rss extends Widget
      */
     public function html()
     {
-        $feed_url = $this->config('url');
-        $limit = $this->config('limit');
+        $feedUrl = $this->config('url');
+        $limit = $this->config('limit') ?? 5;
 
-        return view('sortarad::widgets.rss');
+        if (! $feedUrl) {
+            return "Error: Missing feed URL.";
+        }
+
+        $key = 'sortarad-rss-'.md5($feedUrl.$limit);
+
+        $data = Cache::rememberWithExpiration($key, function() use ($feedUrl, $limit) {
+            $feed = $this->getFeed($feedUrl );
+
+            $data = [
+                'title'     => $feed->get_title(),
+                'permalink' => $feed->get_permalink(),
+                'items'     => $feed->get_items(0, $limit),
+            ];
+
+            return [60 => $data];
+        });
+
+        return view('sortarad::widgets.rss', $data);
+    }
+
+    /**
+     * Return the feed object.
+     *
+     * @param string $url
+     * @return \SimplePie
+     */
+    public function getFeed($url)
+    {
+        $simplePie = new \SimplePie();
+        $simplePie->enable_cache(false);
+        $simplePie->set_feed_url($url);
+        $simplePie->init();
+
+        return $simplePie;
     }
 }
