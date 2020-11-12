@@ -1,11 +1,11 @@
 <?php
 
-namespace Sortarad\Rss\Widgets;
+namespace Sortarad\ExtraExtra\Widgets;
 
 use Statamic\Widgets\Widget;
 use Illuminate\Support\Facades\Cache;
 
-class Rss extends Widget
+class ExtraExtra extends Widget
 {
     /**
      * The HTML that should be shown in the widget.
@@ -35,7 +35,7 @@ class Rss extends Widget
             return [60 => $data];
         });
 
-        return view('sortarad::widgets.rss', $data);
+        return view('sortarad::widgets.extraextra', $data);
     }
 
     /**

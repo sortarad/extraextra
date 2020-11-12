@@ -15,7 +15,7 @@ Add widget to control panel configuration `config/statamic/cp.php` file.
 e.g:
 ```php
 [
-	'type' => 'rss',
+	'type' => 'extra_extra',
 	'width' => 50,
 	'url' => 'https://statamic.com/blog.rss',
 	'limit' => 5,

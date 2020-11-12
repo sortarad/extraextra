@@ -1,8 +1,8 @@
 <?php
 
-namespace Sortarad\Rss;
+namespace Sortarad\ExtraExtra;
 
-use Sortarad\Rss\Widgets\Rss;
+use Sortarad\ExtraExtra\Widgets\ExtraExtra;
 use Statamic\Providers\AddonServiceProvider;
 
 class ServiceProvider extends AddonServiceProvider
@@ -10,6 +10,6 @@ class ServiceProvider extends AddonServiceProvider
     protected $viewNamespace = 'sortarad';
 
     protected $widgets = [
-        Rss::class
+        ExtraExtra::class
     ];
 }

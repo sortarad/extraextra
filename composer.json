@@ -1,6 +1,6 @@
 {
-    "name": "sortarad/rss",
-    "description": "",
+    "name": "sortarad/extraextra",
+    "description": "The hottest news right in your Statamic dashboard.",
     "license": "MIT",
     "keywords": [
         "statamic",
@@ -13,17 +13,17 @@
     },
     "autoload": {
         "psr-4": {
-            "Sortarad\\Rss\\": "src"
+            "Sortarad\\ExtraExtra\\": "src"
         }
     },
     "extra": {
         "statamic": {
-            "name": "Rss",
-            "description": "Rss addon"
+            "name": "ExtraExtra",
+            "description": "The hottest news right in your Statamic dashboard."
         },
         "laravel": {
             "providers": [
-                "Sortarad\\Rss\\ServiceProvider"
+                "Sortarad\\ExtraExtra\\ServiceProvider"
             ]
         }
     },
